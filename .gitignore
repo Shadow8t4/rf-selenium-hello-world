@@ -1,0 +1,8 @@
+geckodriver.log
+.vscode/**
+**/__pycache__/**
+**.pyc
+**/report.html
+**/log.html
+**/output.xml
+Pipfile.lock

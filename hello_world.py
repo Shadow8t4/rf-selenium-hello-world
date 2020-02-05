@@ -1,16 +1,28 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import ui, expected_conditions
+from selenium.webdriver.chrome.options import Options as chromeOptions
+from selenium.webdriver.firefox.options import Options as firefoxOptions
 import time
 
 
-def python_selenium_test(browser='chrome'):
+def python_selenium_test(browser_var='chrome'):
     print('Hello, world!')
-
-    if(browser.lower() == 'chrome'):
-        browser = webdriver.Chrome()
-    elif(browser.lower() == 'firefox'):
-        browser = webdriver.Firefox()
+    
+    if('headless' in browser_var.lower()):
+        if('chrome' in browser_var.lower()):
+            chrome_options = chromeOptions()
+            chrome_options.add_argument("--headless")
+            browser = webdriver.Chrome(chrome_options=chrome_options)
+        elif('firefox' in browser_var.lower()):
+            firefox_options = firefoxOptions()
+            firefox_options.add_argument("--headless")
+            browser = webdriver.Firefox(options=firefox_options)
+    else:
+        if('chrome' in browser_var.lower()):
+            browser = webdriver.Chrome()
+        elif('firefox' in browser_var.lower()):
+            browser = webdriver.Firefox()
     wait = ui.WebDriverWait(browser, 5)
 
     browser.get('https://www.phptravels.net/admin')
