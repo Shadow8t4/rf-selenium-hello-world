@@ -25,26 +25,26 @@ def python_selenium_test(browser_var='chrome'):
             browser = webdriver.Firefox()
     wait = ui.WebDriverWait(browser, 5)
 
-    browser.get('https://www.phptravels.net/admin')
+    browser.get('https://the-internet.herokuapp.com/login')
 
     wait.until(expected_conditions.visibility_of_element_located(
-        (By.CSS_SELECTOR, '.input-outlined > input[name="email"]')))
-    browser.find_element_by_css_selector(
-        'label.input-outlined:nth-child(2) > span').click()
-    browser.find_element_by_css_selector(
-        '.input-outlined > input[name="email"]').send_keys('admin@phptravels.com')
+        (By.ID, 'username')))
+    browser.find_element_by_id(
+        'username').click()
+    browser.find_element_by_id(
+        'username').send_keys('tomsmith')
 
     wait.until(expected_conditions.visibility_of_element_located(
-        (By.CSS_SELECTOR, '.input-outlined > input[name="password"]')))
-    browser.find_element_by_css_selector(
-        'label.input-outlined:nth-child(3) > span').click()
-    browser.find_element_by_css_selector(
-        '.input-outlined > input[name="password"]').send_keys('demoadmin')
+        (By.ID, 'password')))
+    browser.find_element_by_id(
+        'password').click()
+    browser.find_element_by_id(
+        'password').send_keys('SuperSecretPassword!')
 
     browser.find_element_by_css_selector('button[type=submit]').click()
 
     wait.until(
-        lambda browser: browser.find_element_by_id('logout'))
+        lambda browser: browser.find_element_by_css_selector('.button > i.icon-signout'))
 
     time.sleep(5)
     browser.quit()

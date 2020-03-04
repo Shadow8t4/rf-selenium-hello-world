@@ -1,4 +1,5 @@
-geckodriver.log
+geckodriver*
+chromedriver*
 .vscode/**
 **/__pycache__/**
 **.pyc
