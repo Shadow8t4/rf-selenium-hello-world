@@ -15,8 +15,8 @@ ${MESSAGE}       Hello, world!
 My Test
     [Documentation]                       Hello World Test
     Log to console                        ${MESSAGE}
-    Browser Test Using Robot Framework
-    Browser Test Using Python
+    #Browser Test Using Robot Framework
+    #Browser Test Using Python
 
 *** Keywords ***
 

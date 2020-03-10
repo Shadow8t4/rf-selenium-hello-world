@@ -12,6 +12,7 @@ pipfile = "*"
 selenium = "*"
 robotframework = "*"
 robotframework-seleniumlibrary = "*"
+pygtail = "*"
 
 [required]
 python = "*" # Replace this with your project's stable Python version
